@@ -5,7 +5,6 @@ import { Movies } from './pages/Movies/Movies'
 import { MovieDetail } from './pages/MovieDetail/MovieDetail'
 import { ActorDetail } from './pages/ActorDetail/ActorDetail'
 
-
 const App = () => {
   const router = createBrowserRouter([
     {

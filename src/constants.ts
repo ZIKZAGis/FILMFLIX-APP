@@ -13,7 +13,18 @@ import {
     Fort,
 } from '@mui/icons-material'
 
-export const iconComponents = {
+
+type IconComponentsType = {
+    [key: string]: React.ComponentType;
+};
+
+interface ListItem {
+    title: string,
+    icon: string,
+    url: string
+}
+
+export const iconComponents: IconComponentsType = {
     AutoAwesome,
     StarPurple500,
     Bloodtype,
@@ -28,7 +39,7 @@ export const iconComponents = {
     Fort,
 };
 
-export const TOP_LISTS = [
+export const TOP_LISTS:ListItem[] = [
     {
         title: 'ТОП 100 популярных фильмов',
         icon: 'AutoAwesome',
@@ -76,7 +87,7 @@ export const TOP_LISTS = [
     },
 ];
 
-export const MOVIE_LISTS = [
+export const MOVIE_LISTS: ListItem[] = [
     {
         title: 'Фильмы',
         icon: 'LocalMovies',

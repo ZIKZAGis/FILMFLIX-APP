@@ -1,11 +1,29 @@
-import { AppBar, Box, Container, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Slide, Toolbar, Typography, useScrollTrigger, Link, Divider } from '@mui/material';
+import { 
+    AppBar, 
+    Box, 
+    Container, 
+    Drawer, 
+    IconButton, 
+    List, 
+    ListItem, 
+    ListItemButton, 
+    ListItemIcon, 
+    ListItemText, 
+    Slide, 
+    Toolbar, 
+    Typography, 
+    useScrollTrigger, 
+    Link, 
+    Divider 
+} from '@mui/material';
 import React, { useState } from 'react'
 import MenuIcon from '@mui/icons-material/Menu'
 import { Link as RouterLink } from 'react-router-dom';
 import {TOP_LISTS, MOVIE_LISTS, iconComponents} from '../../../constants'
 
+// Как избавиться от ошибки обьявления React, без его явного использования. Возникает ошибка при выкладывании проекта в vercel
 // Верная ли типизация?
-// Почему при запуске проекта, import {TOP_LISTS, iconComponents} from '../../../constants' - подсвечивается как ошибка 'не удалось найти файл обьявления модуля...'?
+// Где будет правильнее прописывать и держать типы и интерфейсы?
 
 type IconName = keyof typeof iconComponents;
 
