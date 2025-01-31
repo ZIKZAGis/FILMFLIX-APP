@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from '@mui/material'
+import { Box, Container } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar/Navbar'
 import { Footer } from './Footer/Footer'
@@ -7,9 +7,10 @@ import { Footer } from './Footer/Footer'
 export const Layout = () => {
   return (
     <Container fixed>
-        <Navbar/>
-        <Outlet/>
-        <Footer/>
+      <Box sx={{p:4}}/>
+      <Navbar/>
+      <Outlet/>
+      <Footer/>
     </Container>
   )
 }
