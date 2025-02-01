@@ -18,10 +18,11 @@ type IconComponentsType = {
     [key: string]: React.ComponentType;
 };
 
-interface ListItem {
+export interface ListItem {
     title: string,
     icon: string,
-    url: string
+    url: string,
+    value: string
 }
 
 export const iconComponents: IconComponentsType = {
@@ -41,49 +42,58 @@ export const iconComponents: IconComponentsType = {
 
 export const TOP_LISTS:ListItem[] = [
     {
-        title: 'ТОП 100 популярных фильмов',
+        title: 'ТОП популярных фильмов',
         icon: 'AutoAwesome',
-        url: '/popular'
+        url: '/popular',
+        value: 'TOP_POPULAR_MOVIES',
     },
     {
         title: 'ТОП 250 лучших фильмов',
         icon: 'StarPurple500',
-        url: '/best'
+        url: '/best',
+        value: 'TOP_250_MOVIES',
     },
     {
         title: 'Вампиры',
         icon: 'Bloodtype',
-        url: '/vampire'
+        url: '/vampire',
+        value: 'VAMPIRE_THEME',
     },
     {
         title: 'Комиксы',
         icon: 'MenuBook',
-        url: '/comics'
+        url: '/comics',
+        value: 'COMICS_THEME',
     },
     {
         title: 'Семейный',
         icon: 'FamilyRestroom',
-        url: '/family'
+        url: '/family',
+        value: 'FAMILY',
     },
     {
         title: 'Романтика',
         icon: 'VolunteerActivism',
-        url: '/romantic'
+        url: '/romantic',
+        value: 'LOVE_THEME',
     },
     {
         title: 'Зомби',
         icon: 'MoodBad',
-        url: '/zombie'
+        url: '/zombie',
+        value: 'ZOMBIE_THEME',
     },
     {
         title: 'Катастрофы',
         icon: 'Pool',
-        url: '/catastrophe'
+        url: '/catastrophe',
+        value: 'CATASTROPHE_THEME',
     },
     {
         title: 'Популярные сериалы',
         icon: 'LiveTv',
-        url: '/popular-serials'
+        url: '/popular-serials',
+        value: 'POPULAR_SERIES',
     },
 ];
 
@@ -91,16 +101,19 @@ export const MOVIE_LISTS: ListItem[] = [
     {
         title: 'Фильмы',
         icon: 'LocalMovies',
-        url: '/films'
+        url: '/films',
+        value: '',
     },
     {
         title: 'Сериалы',
         icon: 'Reorder',
-        url: '/serials'
+        url: '/serials',
+        value: '',
     },
     {
         title: 'Мультфильмы',
         icon: 'Fort',
-        url: '/cartoons'
+        url: '/cartoons',
+        value: '',
     },
 ];
