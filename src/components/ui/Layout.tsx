@@ -6,7 +6,14 @@ import { Footer } from './Footer/Footer'
 
 export const Layout = () => {
   return (
-    <Container fixed>
+    <Container 
+      fixed 
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
       <Box sx={{p:4}}/>
       <Navbar/>
       <Outlet/>
