@@ -12,18 +12,14 @@ import {
     Reorder,
     Fort,
 } from '@mui/icons-material'
+import { ListItem } from './types/types';
 
 
 type IconComponentsType = {
     [key: string]: React.ComponentType;
 };
 
-export interface ListItem {
-    title: string,
-    icon: string,
-    url: string,
-    value: string
-}
+
 
 export const iconComponents: IconComponentsType = {
     AutoAwesome,

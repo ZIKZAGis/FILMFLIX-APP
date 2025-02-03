@@ -19,18 +19,15 @@ export const MoviesListTop = () => {
   if (error) return <p>Какая-то ошибка</p>
   if (isLoading) return <p>Загрузка...</p>
 
-  return (
+  if (data) return (
     <>
       <Stack flexDirection='row'>
         <Button>Назад</Button>
         <Typography>{movieType?.title}</Typography>
       </Stack>
+      <MoviesList movies={data.items} totalPages={data.totalPages} page={page} setPage={setPage}>
 
-      
-      {/* Как в данном случае типизировать data?? */}
-      {/* <MoviesList movies={data.items} totalPages={data.totalPages} page={page} setPage={setPage}>
-
-      </MoviesList> */}
+      </MoviesList>
     </>
   )
 }

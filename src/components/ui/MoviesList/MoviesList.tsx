@@ -1,34 +1,7 @@
 import { Stack, Typography } from "@mui/material"
 import React from "react"
 import { Link } from "react-router-dom"
-
-interface Country {
-    country: string;
-}
-
-interface Genre {
-    genre: string;
-}
-
-interface Movie {
-    kinopoiskId: number;
-    imdbId: string | null;
-    nameRu: string | null;
-    nameEn: string | null;
-    nameOriginal: string | null;
-    countries: Country[];
-    genres: Genre[];
-    ratingKinopoisk: number | null;
-    ratingImdb: number | null;
-    year: number;
-    type: string;
-    posterUrl: string;
-    posterUrlPreview: string;
-    coverUrl: string | null;
-    logoUrl: string | null;
-    description: string;
-    ratingAgeLimits: string;
-}
+import { Movie } from "../../../types/types"
 
 interface MovieProps {
     movies: Movie[], 
@@ -37,11 +10,8 @@ interface MovieProps {
     setPage: (page: number) => void,
 }
 
-
 const MoviesList = ({movies, totalPages, page, setPage}: MovieProps) => {
-
-    console.log(totalPages, page, setPage)
-    
+    console.log (page, setPage, totalPages)
     return (
         <>
             <Stack>
