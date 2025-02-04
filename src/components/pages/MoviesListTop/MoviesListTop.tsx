@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useGetFilmsTopQuery } from '../../../services/kinopoiskApi'
 import { TOP_LISTS } from '../../../constants'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Stack, Typography } from '@mui/material'
 import MoviesList from '../../ui/MoviesList/MoviesList'
+import { ArrowBack } from '@mui/icons-material'
 
 export const MoviesListTop = () => {
   const [page, setPage] = useState(1)
   const location = useLocation()
+  const navigate = useNavigate()
 
   const movieType = TOP_LISTS.find(el => el.url === location.pathname)
 
@@ -21,13 +23,26 @@ export const MoviesListTop = () => {
 
   if (data) return (
     <>
-      <Stack flexDirection='row'>
-        <Button>Назад</Button>
-        <Typography>{movieType?.title}</Typography>
+      <Stack 
+        flexDirection='row' 
+        sx={{mt: 2, mb: 2}}
+      >
+        <Button 
+          startIcon={<ArrowBack/>} 
+          onClick={() => navigate(-1)}
+        />
+        <Typography
+          variant='h4'
+        >
+          {movieType?.title}
+        </Typography>
       </Stack>
-      <MoviesList movies={data.items} totalPages={data.totalPages} page={page} setPage={setPage}>
-
-      </MoviesList>
+      <MoviesList 
+        movies={data.items} 
+        totalPages={data.totalPages} 
+        page={page} 
+        setPage={setPage}
+      />
     </>
   )
 }
