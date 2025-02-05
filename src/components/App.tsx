@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Layout } from './ui/Layout'
 import { Movies } from './pages/Movies/Movies'
@@ -8,7 +8,7 @@ import { MOVIE_LISTS, TOP_LISTS } from '../constants'
 import { MoviesListTop } from './pages/MoviesListTop/MoviesListTop'
 import { MoviesListMain } from './pages/MoviesListMain/MoviesListMain'
 
-const App = () => {
+const App: FC = () => {
   const router = createBrowserRouter([
     {
       path: '/',

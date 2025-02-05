@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-export const ActorDetail = () => {
+export const ActorDetail: FC = () => {
   return (
     <div>ActorDetail</div>
   )

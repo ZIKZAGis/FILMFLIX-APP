@@ -1,14 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 import { Box, Link, Rating, Stack, Tooltip } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { Movie } from '../../../types/types'
 import styles from './MovieCard.module.scss'
+import { MovieCardProps } from './interfaces'
 
-interface MovieCardProps {
-    movie: Movie
-}
-
-export const MovieCard = ({movie}: MovieCardProps) => {
+export const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
     <>
         <Stack margin='5px'>

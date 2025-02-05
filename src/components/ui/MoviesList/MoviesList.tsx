@@ -1,17 +1,12 @@
-import React from "react"
+import { FC } from "react"
 import { Stack } from "@mui/material"
-import { Movie } from "../../../types/types"
 import { MovieCard } from "../MovieCard/MovieCard"
+import { MoviesListProps } from "./interfaces"
 
-interface MoviesListProps {
-    movies: Movie[], 
-    totalPages: number, 
-    page: number, 
-    setPage: (page: number) => void,
-}
-
-const MoviesList = ({movies, totalPages, page, setPage}: MoviesListProps) => {
+const MoviesList: FC<MoviesListProps> = ({movies, totalPages, page, setPage}) => {
+    
     console.log (page, setPage, totalPages)
+
     return (
         <>
             <Stack 

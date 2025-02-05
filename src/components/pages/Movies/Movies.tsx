@@ -1,6 +1,6 @@
-import React from 'react'
+import { FC } from 'react'
 
-export const Movies = () => {
+export const Movies: FC = () => {
   return (
     <div>Movies</div>
   )

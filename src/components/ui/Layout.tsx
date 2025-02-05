@@ -1,10 +1,10 @@
-import React from 'react'
+import { FC } from 'react'
 import { Box, Container } from '@mui/material'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './Navbar/Navbar'
 import { Footer } from './Footer/Footer'
 
-export const Layout = () => {
+export const Layout: FC = () => {
   return (
     <Container 
       fixed 

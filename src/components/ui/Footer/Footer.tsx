@@ -1,7 +1,7 @@
 import { Stack, Typography } from '@mui/material'
-import React from 'react'
+import { FC } from 'react'
 
-export const Footer = () => {
+export const Footer: FC = () => {
   return (
     <Stack 
       component="footer" 
