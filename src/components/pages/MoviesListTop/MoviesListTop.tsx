@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { useGetFilmsTopQuery } from '../../../services/kinopoiskApi'
 import { TOP_LISTS } from '../../../constants'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -17,6 +17,10 @@ export const MoviesListTop: FC = () => {
     type: movieType?.value ? movieType.value : '',
     page,
   });
+
+  useEffect(() => {
+    setPage(1)
+  }, [location])
 
   if (error) return <p>Какая-то ошибка</p>
   if (isLoading) return <p>Загрузка...</p>

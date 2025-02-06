@@ -1,12 +1,9 @@
 import { FC } from "react"
-import { Stack } from "@mui/material"
+import { Pagination, Stack } from "@mui/material"
 import { MovieCard } from "../MovieCard/MovieCard"
 import { MoviesListProps } from "./interfaces"
 
 const MoviesList: FC<MoviesListProps> = ({movies, totalPages, page, setPage}) => {
-    
-    console.log (page, setPage, totalPages)
-
     return (
         <>
             <Stack 
@@ -20,6 +17,16 @@ const MoviesList: FC<MoviesListProps> = ({movies, totalPages, page, setPage}) =>
                         movie={movie}
                     />
                 ))}
+            </Stack>
+            <Stack alignItems='center'>
+                <Pagination 
+                    count={totalPages} 
+                    color="primary" 
+                    variant="outlined" 
+                    size="large"
+                    page={page}
+                    onChange={(_, value) => setPage(value)}
+                />
             </Stack>
         </>
     )
