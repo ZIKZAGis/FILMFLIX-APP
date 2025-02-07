@@ -1,13 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Movie } from '../types/types';
+import { MovieResponse } from './interfaces';
+import { Country } from '../types/types';
+
 
 const kinopoiskApiKey = import.meta.env.VITE_KINOPOISK_KEY
-
-interface MovieResponse {
-    items: Movie[],
-    total: number,
-    totalPages: number
-}
 
 export const kinopoiskApi = createApi({
     reducerPath: 'kinopoiskApi',
@@ -20,9 +16,19 @@ export const kinopoiskApi = createApi({
      }),
     endpoints: (builder) => ({
         getFilmsTop: builder.query<MovieResponse, {type: string, page: number}>({
-        query: ({type, page}) => `/v2.2/films/collections?type=${type}&page=${page}`,
+            query: ({type, page}) => `/v2.2/films/collections?type=${type}&page=${page}`,
+        }),
+        getFilms: builder.query<MovieResponse, {countries: Country[], genreId: string, order: string, type: string, year: number, page: number}>({
+            query: ({
+                countries,
+                genreId,
+                order = 'NUM_VOTE',
+                type = 'FILM',
+                year,
+                page
+            }) => `/v2.2/films?countries=${countries}&genres=${genreId}&order=${order}&type=${type}&year=${year}&page=${page}`,
         }),
     }),
 })
 
-export const { useGetFilmsTopQuery } = kinopoiskApi
+export const { useGetFilmsTopQuery, useGetFilmsQuery } = kinopoiskApi

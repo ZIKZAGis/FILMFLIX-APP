@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
-import currentQueryReducer from '../features/currentQuerySlice'
+import currentQuerySlice from '../features/currentQuerySlice'
 import { kinopoiskApi } from '../services/kinopoiskApi'
 
 export const store = configureStore({
   reducer: {
     [kinopoiskApi.reducerPath]: kinopoiskApi.reducer,
-    currentQuery: currentQueryReducer
+    currentQuerySlice: currentQuerySlice
   },
 
   middleware: (getDefaultMiddleware) =>
@@ -13,5 +13,4 @@ export const store = configureStore({
 })
 
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch
