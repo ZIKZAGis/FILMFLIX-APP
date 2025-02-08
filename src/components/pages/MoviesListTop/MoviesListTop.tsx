@@ -5,9 +5,13 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { Button, Stack, Typography } from '@mui/material'
 import MoviesList from '../../ui/MoviesList/MoviesList'
 import { ArrowBack } from '@mui/icons-material'
+import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
+import { MovieListSkeleton } from '../../ui/MovieListSkeleton/MovieListSkeleton'
 
 export const MoviesListTop: FC = () => {
   const [page, setPage] = useState<number>(1)
+
+  //как типизировать useLocation и useNavigation?
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -22,8 +26,8 @@ export const MoviesListTop: FC = () => {
     setPage(1)
   }, [location])
 
-  if (error) return <p>Какая-то ошибка</p>
-  if (isLoading) return <p>Загрузка...</p>
+  if (error) return <ErrorMessage/>
+  if (isLoading) return <MovieListSkeleton/>
 
   if (data) return (
     <>

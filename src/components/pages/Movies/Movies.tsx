@@ -3,8 +3,11 @@ import { useMoviesQuery } from '../../../hooks/useMoviesQuery'
 import { Movie } from '../../../types/types';
 import { Link, Stack } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
+import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage';
 //@ts-ignore
 import BearCarousel, {BearSlideImage} from 'bear-react-carousel'
+import { MovieSkeleton } from './MovieSkeleton';
+
 
 export const Movies: FC = () => {
   const {
@@ -17,9 +20,9 @@ export const Movies: FC = () => {
     responseSerials
   } = useMoviesQuery();
 
-  if (isLoading) return <div>Loading...</div>
+  if (isLoading) return <MovieSkeleton/>
 
-  if (hasError) return <div>Error</div>
+  if (hasError) return <ErrorMessage/>
 
   const serializeDataForCarousel = (data: Movie[]) => (
     data.map(row => (
