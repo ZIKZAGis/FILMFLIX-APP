@@ -19,7 +19,7 @@ export const useMoviesQuery = () => {
     const responseFilms = useGetFilmsQuery({
         type: 'FILM',
         countries,
-        genreId: '1', 
+        genre: '1', 
         order, 
         year, 
         page
@@ -28,7 +28,7 @@ export const useMoviesQuery = () => {
     const responseSerials = useGetFilmsQuery({
         type: 'TV_SERIES',
         countries, 
-        genreId: '1', 
+        genre: '1', 
         order, 
         year, 
         page
@@ -37,7 +37,7 @@ export const useMoviesQuery = () => {
     const responseCartoons = useGetFilmsQuery({
         type: 'FILM',
         countries, 
-        genreId: '18', 
+        genre: '18', 
         order, 
         year,
         page
