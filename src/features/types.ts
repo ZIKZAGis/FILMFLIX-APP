@@ -11,6 +11,6 @@ export interface CurrentState {
     genre: Genre[],
     order: string,
     type: string,
-    year: number,
+    year: number | string,
     page: number,
 }

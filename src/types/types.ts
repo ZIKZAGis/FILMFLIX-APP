@@ -6,11 +6,13 @@ export interface ListItem {
 }
 
 export interface Country {
-    country: string;
+    id?: number,
+    country: string
 }
 
 export interface Genre {
-    genre: string;
+    id?: number,
+    genre: string
 }
 
 export interface Movie {
@@ -23,7 +25,7 @@ export interface Movie {
     genres: Genre[];
     ratingKinopoisk: number | null;
     ratingImdb: number | null;
-    year: number;
+    year: number | string;
     type: string;
     posterUrl: string;
     posterUrlPreview: string;

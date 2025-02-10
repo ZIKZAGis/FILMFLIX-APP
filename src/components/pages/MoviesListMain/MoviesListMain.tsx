@@ -4,11 +4,12 @@ import { Button, Stack, Typography } from '@mui/material'
 import MoviesList from '../../ui/MoviesList/MoviesList'
 import { ArrowBack } from '@mui/icons-material'
 import { MOVIE_LISTS } from '../../../constants'
-import { useGetFilmsQuery } from '../../../services/kinopoiskApi'
+import { useGetFilmsQuery, useGetGenresAndCountriesQuery } from '../../../services/kinopoiskApi'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../app/store'
 import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
 import { MovieListSkeleton } from '../../ui/MovieListSkeleton/MovieListSkeleton'
+import { SelectMovies } from '../../ui/SelectMovies/SelectMovies'
 
 export const MoviesListMain: FC = () => {
   const [page, setPage] = useState<number>(1)
@@ -19,7 +20,7 @@ export const MoviesListMain: FC = () => {
   const movieType = MOVIE_LISTS.find(el => el.url === location.pathname)
   const myGenreId = movieType?.url === '/cartoons' ? '18' : genre
 
-  const {data, error, isLoading} = useGetFilmsQuery({
+  const responseFilms = useGetFilmsQuery({
     type: movieType?.value ? movieType.value : '',
     countries,
     order,
@@ -28,14 +29,16 @@ export const MoviesListMain: FC = () => {
     page
   })
 
+  const responseGenresAndCountries = useGetGenresAndCountriesQuery();
+
   useEffect(() => {
     setPage(1)
   }, [location])
 
-  if (error) return <ErrorMessage/>
-  if (isLoading) return <MovieListSkeleton/>
+  if (responseFilms.error || responseGenresAndCountries.error) return <ErrorMessage/>
+  if (responseFilms.isLoading || responseGenresAndCountries.isLoading) return <MovieListSkeleton/>
 
-  if (data) return (
+  if (responseFilms.data && responseGenresAndCountries.data) return (
     <>
       <Stack 
         flexDirection='row' 
@@ -51,9 +54,17 @@ export const MoviesListMain: FC = () => {
           {movieType?.title}
         </Typography>
       </Stack>
+      <SelectMovies 
+        countriesList={responseGenresAndCountries.data.countries}
+        genresList={responseGenresAndCountries.data.genres}
+        countries={countries}
+        order={order}
+        year={year}
+        genre={genre}
+      />
       <MoviesList 
-        movies={data.items} 
-        totalPages={data.totalPages} 
+        movies={responseFilms.data.items} 
+        totalPages={responseFilms.data.totalPages} 
         page={page} 
         setPage={setPage}
       />

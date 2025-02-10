@@ -2,13 +2,14 @@ import { Link, List, ListItem, ListItemButton, ListItemIcon, ListItemText } from
 import { Link as RouterLink } from 'react-router-dom'
 import { IconProps, ListItemIf, NavbarListItemProps } from './interfaces'
 import { iconComponents } from '../../../constants'
+import { FC } from 'react';
 
 const Icon = ({iconName}: IconProps) => {
   const IconComponent = iconComponents[iconName]
   return <IconComponent />;
 };
 
-export const NavbarListItem = ({listItem}: NavbarListItemProps) => {
+export const NavbarListItem:FC<NavbarListItemProps> = ({listItem}) => {
   return (
     <List>
       {listItem.map((item: ListItemIf) => (
