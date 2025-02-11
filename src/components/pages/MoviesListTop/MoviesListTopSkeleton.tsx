@@ -1,7 +1,7 @@
 import { Skeleton, Stack } from "@mui/material"
 import { FC } from "react"
 
-export const MovieListSkeleton: FC = () => {
+export const MoviesListTopSkeleton: FC = () => {
     return (
         <Stack direction='row' flexWrap='wrap' justifyContent='center'>
             <Skeleton animation='wave' variant="text" height='80px' width='100%' sx={{mb: '20px'}}/>

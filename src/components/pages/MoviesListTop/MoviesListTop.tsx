@@ -6,12 +6,11 @@ import { Button, Stack, Typography } from '@mui/material'
 import MoviesList from '../../ui/MoviesList/MoviesList'
 import { ArrowBack } from '@mui/icons-material'
 import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
-import { MovieListSkeleton } from '../../ui/MovieListSkeleton/MovieListSkeleton'
+import { MoviesListTopSkeleton } from './MoviesListTopSkeleton'
 
 export const MoviesListTop: FC = () => {
   const [page, setPage] = useState<number>(1)
 
-  //как типизировать useLocation и useNavigation?
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -27,7 +26,7 @@ export const MoviesListTop: FC = () => {
   }, [location])
 
   if (error) return <ErrorMessage/>
-  if (isLoading) return <MovieListSkeleton/>
+  if (isLoading) return <MoviesListTopSkeleton/>
 
   if (data) return (
     <>

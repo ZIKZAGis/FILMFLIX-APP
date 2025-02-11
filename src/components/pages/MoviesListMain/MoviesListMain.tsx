@@ -8,12 +8,12 @@ import { useGetFilmsQuery, useGetGenresAndCountriesQuery } from '../../../servic
 import { useSelector } from 'react-redux'
 import { RootState } from '../../../app/store'
 import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
-import { MovieListSkeleton } from '../../ui/MovieListSkeleton/MovieListSkeleton'
 import { SelectMovies } from '../../ui/SelectMovies/SelectMovies'
+import { MoviesListMainSkeleton } from './MoviesListMainSkeleton'
 
 export const MoviesListMain: FC = () => {
   const [page, setPage] = useState<number>(1)
-  const {countries, order, year, genre} = useSelector((state: RootState)=> state.currentQuerySlice)
+  const {countries, order, year, genre} = useSelector((state: RootState)=> state?.currentQuerySlice)
   const location = useLocation()
   const navigate = useNavigate()
 
@@ -36,7 +36,7 @@ export const MoviesListMain: FC = () => {
   }, [location])
 
   if (responseFilms.error || responseGenresAndCountries.error) return <ErrorMessage/>
-  if (responseFilms.isLoading || responseGenresAndCountries.isLoading) return <MovieListSkeleton/>
+  if (responseFilms.isLoading || responseGenresAndCountries.isLoading) return <MoviesListMainSkeleton/>
 
   if (responseFilms.data && responseGenresAndCountries.data) return (
     <>
