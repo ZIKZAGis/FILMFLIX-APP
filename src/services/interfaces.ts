@@ -6,7 +6,7 @@ export interface MovieResponse {
     totalPages: number
 }
 
-export interface SequelsAndPrequelsResponse {
+export interface SequelsAndPrequelsResponse extends Movie {
     filmId: number,
     nameRu: string,
     nameEn: string,

@@ -8,7 +8,7 @@ export const MovieCard: FC<MovieCardProps> = ({movie}) => {
   return (
     <>
         <Stack margin='5px'>
-            <RouterLink to={`/movies/${movie.kinopoiskId}`}>
+            <RouterLink to={`/movie/${movie.kinopoiskId}`}>
                 <img 
                     src={movie.posterUrlPreview} 
                     alt={'обложка фильма'} 
@@ -17,7 +17,7 @@ export const MovieCard: FC<MovieCardProps> = ({movie}) => {
             </RouterLink>
             <Link
                 component={RouterLink}
-                to={`/movies/${movie.kinopoiskId}`}
+                to={`/movie/${movie.kinopoiskId}`}
                 textAlign='center' 
                 fontSize='14px'
                 sx={{width:'200px'}}
