@@ -16,5 +16,5 @@ export interface CurrentState {
 }
 
 export interface SearchState extends CurrentState {
-    keyword: string
+    keyword?: string
 }

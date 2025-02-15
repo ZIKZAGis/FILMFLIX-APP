@@ -26,7 +26,8 @@ export const MoviesListMain: FC = () => {
     order,
     year,
     genre: myGenreId,
-    page
+    page, 
+    keyword: '',
   })
 
   const responseGenresAndCountries = useGetGenresAndCountriesQuery();
