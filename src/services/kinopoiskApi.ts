@@ -25,15 +25,16 @@ export const kinopoiskApi = createApi({
         getFilmsTop: builder.query<MovieResponse, {type: string, page: number}>({
             query: ({type, page}) => `/v2.2/films/collections?type=${type}&page=${page}`,
         }),
-        getFilms: builder.query<MovieResponse, {countries: Country[], genre: Genre[] | string, order: string, type: string, year: number | string, page: number}>({
+        getFilms: builder.query<MovieResponse, {countries: Country[], genre: Genre[] | string, order: string, type: string, year: number | string, page: number, keyword: string}>({
             query: ({
                 countries,
                 genre,
                 order = 'NUM_VOTE',
                 type = 'FILM',
                 year,
-                page
-            }) => `/v2.2/films?countries=${countries}&genres=${genre}&order=${order}&type=${type}&yearFrom=${year}&yearTo=${year}&page=${page}`,
+                page,
+                keyword = ''
+            }) => `/v2.2/films?countries=${countries}&genres=${genre}&order=${order}&type=${type}&yearFrom=${year}&yearTo=${year}&page=${page}&keyword=${keyword}`,
         }),
         getGenresAndCountries: builder.query<Movie, void>({
             query: () => `/v2.2/films/filters`,

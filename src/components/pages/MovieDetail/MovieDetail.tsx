@@ -6,6 +6,7 @@ import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
 import Grid from '@mui/material/Grid2'
 import { ArrowBack, Language, Movie as MovieIcon} from '@mui/icons-material'
 import { MovieCard } from '../../ui/MovieCard/MovieCard'
+import VideoPlayer from '../../ui/VideoPlayer/VideoPlayer'
 
 export const MovieDetail: FC = () => {
   const {id} = useParams()
@@ -143,15 +144,17 @@ export const MovieDetail: FC = () => {
           </ButtonGroup>
         </Grid>
         <Typography variant='h5'>Смотреть онлайн</Typography>
-        <Grid size={12} textAlign='center' border='2px solid red' height='400px'>заглушка</Grid>
-        <Stack alignItems='center'>
-          <Typography variant='h5' gutterBottom>Сиквелы и приквелы</Typography>
-          <Stack direction='row' flexWrap='wrap' justifyContent='center'>
-            {responseSequelAndPrequel.data?.map((el) => (
-              <MovieCard key={el.filmId} movie={el} />
-            ))}
+        <VideoPlayer/>
+        {responseSequelAndPrequel.data && (
+          <Stack alignItems='center'>
+            <Typography variant='h5' gutterBottom>Сиквелы и приквелы</Typography>
+            <Stack direction='row' flexWrap='wrap' justifyContent='center'>
+              {responseSequelAndPrequel.data?.map((el) => (
+                <MovieCard key={el.filmId} movie={el} reload/>
+              ))}
+            </Stack>
           </Stack>
-        </Stack>
+        )}
       </Grid>
     </>
   )

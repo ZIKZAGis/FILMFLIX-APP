@@ -14,3 +14,7 @@ export interface CurrentState {
     year: number | string,
     page: number,
 }
+
+export interface SearchState extends CurrentState {
+    keyword: string
+}
