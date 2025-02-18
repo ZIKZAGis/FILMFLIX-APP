@@ -22,7 +22,8 @@ export const useMoviesQuery = () => {
         genre: '1', 
         order, 
         year, 
-        page
+        page,
+        keyword: ''
     });
 
     const responseSerials = useGetFilmsQuery({
@@ -31,7 +32,8 @@ export const useMoviesQuery = () => {
         genre: '1', 
         order, 
         year, 
-        page
+        page,
+        keyword: ''
     });
 
     const responseCartoons = useGetFilmsQuery({
@@ -40,7 +42,8 @@ export const useMoviesQuery = () => {
         genre: '18', 
         order, 
         year,
-        page
+        page,
+        keyword: ''
     });
 
     const isLoading = 
