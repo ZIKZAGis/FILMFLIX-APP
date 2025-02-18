@@ -20,8 +20,6 @@ export const ActorDetail: FC = () => {
 
   if (error) return <ErrorMessage/>
 
-  console.log(data)
-
   return (
     <>
       <Grid container spacing={4} pt={1}>

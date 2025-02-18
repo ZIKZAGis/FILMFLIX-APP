@@ -1,13 +1,16 @@
-import { FC, useState } from 'react'
+import { FC, useContext, useState } from 'react'
 import { AppBar, Box, Container, Drawer, IconButton, Slide, Toolbar, Typography, useScrollTrigger, Divider, Stack } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu'
 import { Link as RouterLink } from 'react-router-dom';
 import { NavbarListItem } from './NavbarListItem';
 import { MOVIE_LISTS, TOP_LISTS } from '../../../constants';
 import Search from '../Search/Serach';
+import { ColorModeContext } from '../../../context/ToggleColorMode';
+import { Brightness4, Brightness7 } from '@mui/icons-material';
 
 export const Navbar: FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const {toggleColorMode, mode} = useContext(ColorModeContext);
 
     const handleDrawerToggle = () => {
         setIsOpen(prevState => !prevState);
@@ -40,7 +43,10 @@ export const Navbar: FC = () => {
                         >
                             FilmFlix
                         </Typography>
-                        <Search></Search>
+                        <Search/>
+                        <IconButton color="inherit" onClick={toggleColorMode}>
+                            {mode === 'dark' ? <Brightness7/> : <Brightness4/>}
+                        </IconButton>
                     </Stack>
                 </Toolbar>
             </Container>
