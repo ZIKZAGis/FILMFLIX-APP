@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { useGetFilmQuery, useGetSequelsAndPrequelsQuery, useGetStaffQuery } from '../../../services/kinopoiskApi'
-import { useNavigate, useParams } from 'react-router-dom'
-import { Box, Button, ButtonGroup, CircularProgress, Stack, Typography } from '@mui/material'
+import { useNavigate, useParams, Link as RouterLink } from 'react-router-dom'
+import { Box, Button, ButtonGroup, CircularProgress, Link, Stack, Typography } from '@mui/material'
 import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
 import Grid from '@mui/material/Grid2'
 import { ArrowBack, Language, Movie as MovieIcon} from '@mui/icons-material'
@@ -123,8 +123,10 @@ export const MovieDetail: FC = () => {
           {responseStaff.data
             ?.filter(el => el.professionText === 'Актеры')
             .slice(0, 10)
-            .map(({nameRu}) => (
-              <Typography gutterBottom key={nameRu}>{nameRu}</Typography>
+            .map(({nameRu, staffId}) => (
+              <div key={nameRu}>
+                <Link component={RouterLink} to={`/actor/${staffId}`} gutterBottom>{nameRu}</Link>
+              </div>
             ))
           }
         </Grid>

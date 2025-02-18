@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { MovieResponse, SequelsAndPrequelsResponse, StaffResponse } from './interfaces';
+import { MovieResponse, SequelsAndPrequelsResponse, StaffActorResponse, StaffResponse } from './interfaces';
 import { Country, Genre, Movie } from '../types/types';
 
 const kinopoiskApiKey = import.meta.env.VITE_KINOPOISK_KEY
@@ -57,6 +57,9 @@ export const kinopoiskApi = createApi({
         getStaff: builder.query<StaffResponse[], number>({
             query: id => `/v1/staff?filmId=${id}`,
         }),
+        getStaffById: builder.query<StaffActorResponse, number>({
+            query: id => `/v1/staff/${id}`
+        })
     }),
 })
 
@@ -66,5 +69,6 @@ export const {
     useGetGenresAndCountriesQuery,
     useGetFilmQuery,
     useGetSequelsAndPrequelsQuery,
-    useGetStaffQuery
+    useGetStaffQuery,
+    useGetStaffByIdQuery
 } = kinopoiskApi

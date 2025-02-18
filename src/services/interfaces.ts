@@ -25,3 +25,25 @@ export interface StaffResponse {
     professionText: string,
     professionKey: string,
 }
+
+interface Film extends Movie {
+    filmId: number,
+    rating: string
+}
+
+export interface StaffActorResponse {
+    age: number,
+    birthday: null | string,
+    birthplace: string,
+    films: Film[],
+    facts: string[],
+    growth: number,
+    hasAwards: number
+    nameEn: string,
+    nameRu: string,
+    personId: number,
+    posterUrl: string
+    profession: string,
+    sex: string,
+    webUrl: string
+}
