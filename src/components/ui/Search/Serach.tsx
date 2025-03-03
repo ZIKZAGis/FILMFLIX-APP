@@ -30,7 +30,7 @@ const Search: FC = () => {
         <Autocomplete 
             freeSolo
             sx={{
-                width: 400, 
+                width: 300, 
                 backgroundColor: 'rgba(255,255,255, 0.2)', 
                 '& .MuiOutlinedInput-root': {'& fieldset': {border: 'none'}}
             }}
@@ -53,6 +53,7 @@ const Search: FC = () => {
                 <TextField 
                     {...params}
                     label='Поиск'
+                    variant="filled"
                     slotProps={{
                         input: {
                             ...params.InputProps,

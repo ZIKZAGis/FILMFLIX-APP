@@ -40,6 +40,7 @@ export const Navbar: FC = () => {
                             component={RouterLink } 
                             to="/"
                             variant='h5'
+                            mr={2}
                         >
                             FilmFlix
                         </Typography>

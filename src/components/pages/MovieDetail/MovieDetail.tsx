@@ -7,6 +7,7 @@ import Grid from '@mui/material/Grid2'
 import { ArrowBack, Language, Movie as MovieIcon} from '@mui/icons-material'
 import { MovieCard } from '../../ui/MovieCard/MovieCard'
 import VideoPlayer from '../../ui/VideoPlayer/VideoPlayer'
+import { InfoBlock } from '../../ui/InfoBlock/InfoBlock'
 
 export const MovieDetail: FC = () => {
   const {id} = useParams()
@@ -49,73 +50,27 @@ export const MovieDetail: FC = () => {
             </Grid>
           </Grid>
           <Grid container>
-            <Grid size={6}>
-              <Typography>
-                Год
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography gutterBottom>
-                {responseFilm.data?.year}
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography>
-                Страна
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography gutterBottom>
-                {responseFilm.data?.countries.map(({country}, index) => (
-                  <Typography key={index}>{country}</Typography>
-                ))}
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography>
-                Жанры
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography gutterBottom>
-                {responseFilm.data?.genres.map(({genre}, index) => (
-                  <Typography key={index}>{genre}</Typography>
-                ))}
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography>
-                Режисёры
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              {responseStaff.data
+            <InfoBlock size={6} name='Год' data={responseFilm.data?.year}/>
+            <InfoBlock size={6} name='Страна' data={
+              responseFilm.data?.countries.map(({country}, index) => (
+                <Typography key={index}>{country}</Typography>
+              ))}
+            />
+            <InfoBlock size={6} name='Жанры' data={
+              responseFilm.data?.genres.map(({genre}, index) => (
+                <Typography key={index}>{genre}</Typography>
+              ))}
+            />
+            <InfoBlock size={6} name='Режисёры' data={
+              responseStaff.data
                 ?.filter(el => el.professionText === 'Режиссеры')
                 .map(({nameRu}) => (
                   <Typography gutterBottom key={nameRu}>{nameRu}</Typography>
                 ))
               }
-            </Grid>
-            <Grid size={6}>
-              <Typography>
-                Время
-              </Typography>
-            </Grid>
-            <Grid size={6}>
-              <Typography gutterBottom>
-                {responseFilm.data?.filmLength} мин
-              </Typography>
-            </Grid>
-            <Grid size={12}>
-              <Typography>
-                Описание:
-              </Typography>
-            </Grid>
-            <Grid size={12}>
-              <Typography>
-                {responseFilm.data?.description ? responseFilm.data.description : 'Нет описания'}
-              </Typography>
-            </Grid>
+            />
+            <InfoBlock size={6} name='Время' data={`${responseFilm.data?.filmLength} мин`}/>
+            <InfoBlock size={12} name='Описание' data={responseFilm.data?.description ? responseFilm.data.description : 'Нет описания'}/>
           </Grid>
         </Grid>
         <Grid size={{xs:12, md:2}}>

@@ -5,6 +5,7 @@ import { Box, Button, CircularProgress, Link, Stack, Typography } from '@mui/mat
 import { ErrorMessage } from '../../ui/ErrorMessage/ErrorMessage'
 import {Grid2 as Grid} from '@mui/material'
 import { ArrowBack } from '@mui/icons-material'
+import { InfoBlock } from '../../ui/InfoBlock/InfoBlock'
 
 export const ActorDetail: FC = () => {
   const {id} = useParams()
@@ -36,52 +37,24 @@ export const ActorDetail: FC = () => {
             </Stack>
           </Stack>
           <Typography gutterBottom variant='h5'>Об актёре</Typography>
+
           <Grid container>
-            <Grid size={{xs: 6}}>
-              <Typography gutterBottom>Карьера</Typography>
-            </Grid>
-            <Grid size={{xs: 6}}>
-              <Typography gutterBottom>{data?.profession ? data.profession : '-'}</Typography>
-            </Grid>
+            <InfoBlock size={6} name='Карьера' data={data?.profession ? data.profession : '-'}/>
             {data?.growth !== undefined && data.growth > 0 &&
-              <>
-                <Grid size={{xs: 6}}>
-                  <Typography gutterBottom>Рост</Typography>
-                </Grid>
-                <Grid size={{xs: 6}}>
-                  <Typography gutterBottom>{data?.growth} см</Typography>
-                </Grid>
-              </>
+              <InfoBlock size={6} name='Рост' data={`${data.growth} см`}/>
             }
-            {data?.birthday !== undefined && 
-              <>
-                <Grid size={{xs: 6}}>
-                  <Typography gutterBottom>Дата рождения</Typography>
-                </Grid>
-                <Grid size={{xs: 6}}>
-                  <Typography gutterBottom>{data?.birthday} ({data?.age} лет)</Typography>
-                </Grid>
-              </>
+            {data?.birthday !== undefined && data.birthday !== null &&
+              <InfoBlock size={6} name='Дата рождения' data={`${data?.birthday} (${data?.age} лет)`}/>
             }
-            <Grid size={{xs: 6}}>
-              <Typography gutterBottom>Всего фильмов</Typography>
-            </Grid>
-            <Grid size={{xs: 6}}>
-              <Typography gutterBottom>{data?.films.length}</Typography>
-            </Grid>
+            <InfoBlock size={6} name='Всего фильмов' data={data?.films.length}/>
+
             {data?.facts !== undefined && data.facts.length > 0 &&
-              <>
-                <Grid size={{xs: 6}}>
-                  <Typography gutterBottom>Факты</Typography>
-                </Grid>
-                <Grid size={{xs: 12}}>
-                  {data?.facts.map((fact, index) => (
-                    <Typography gutterBottom key={fact}>
-                      {index + 1}.{fact}
-                    </Typography>
-                  ))}
-                </Grid>
-              </>
+              <InfoBlock size={12} name='Факты' data={
+                data?.facts.map((fact, index) => (
+                  <Typography gutterBottom key={fact}>
+                    {index + 1}.{fact}
+                  </Typography>
+              ))}/>
             }
           </Grid>
         </Grid>
