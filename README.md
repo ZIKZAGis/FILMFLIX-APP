@@ -47,7 +47,7 @@ npm run build
 ### Список категорий
 ![Список категорий](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/mvie_list.png)
 
-### ГСтраница 250 лучших фильмов
+### Страница 250 лучших фильмов
 ![Страница 250 лучших фильмов](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/best.png)
 
 ### Сортировка фильмов
