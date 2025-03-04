@@ -40,16 +40,24 @@ npm run build
 ``` 
 
 ## Скриншоты
+
+### Главная
 ![Главная](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/main.png)
 
+### Список категорий
 ![Список категорий](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/mvie_list.png)
 
+### ГСтраница 250 лучших фильмов
 ![Страница 250 лучших фильмов](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/best.png)
 
+### Сортировка фильмов
 ![Сортировка фильмов](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/sort.png)
 
+### Поиск фильмов
 ![Поиск фильмов](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/search.png)
 
+### Страница фильма
 ![Страница фильма](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/movie_page.png)
 
+### Страница актёра
 ![Страница актёра](https://raw.githubusercontent.com/ZIKZAGis/FILMFLIX-APP/5178e796cf1184fcb44e67300e0835219243dfaa/images/actor_page.png)
